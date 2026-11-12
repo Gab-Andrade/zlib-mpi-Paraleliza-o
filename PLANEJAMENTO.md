@@ -31,7 +31,7 @@ versão serial: S(P) = T1 / TP.
 
 | #  | Atividade                              | Responsável            | Depende de | Status       |
 |----|----------------------------------------|------------------------|------------|--------------|
-| 1  | Plano e papéis                         | Gabriel                | —          | em andamento |
+| 1  | Plano e papéis                         | Gabriel                | —          | concluído    |
 | 2  | Versão serial (linha de base T1)       | devs                   | 1          | a fazer      |
 | 3  | Diagrama da troca de mensagens         | Gabriel                | 1          | a fazer      |
 | 4  | Versão MPI                             | devs                   | 2, 3       | a fazer      |
