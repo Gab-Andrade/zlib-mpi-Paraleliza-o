@@ -25,8 +25,22 @@ versão serial: S(P) = T1 / TP.
 
 **Regra:** quem desenvolve um trecho não revisa esse trecho.
 
-## Cronograma
-_(a definir)_
+## Cronograma (por atividades)
+
+**Prazo final:** tudo pronto antes do seminário, terça 17/11/2026.
+
+| #  | Atividade                              | Responsável            | Depende de | Status       |
+|----|----------------------------------------|------------------------|------------|--------------|
+| 1  | Plano e papéis                         | Gabriel                | —          | em andamento |
+| 2  | Versão serial (linha de base T1)       | devs                   | 1          | a fazer      |
+| 3  | Diagrama da troca de mensagens         | Gabriel                | 1          | a fazer      |
+| 4  | Versão MPI                             | devs                   | 2, 3       | a fazer      |
+| 5  | Revisão do código                      | Renan, Augusto         | 2, 4       | a fazer      |
+| 6  | Testes de corretude                    | testes                 | 2, 4       | a fazer      |
+| 7  | Correções apontadas em 5 e 6           | devs                   | 5, 6       | a fazer      |
+| 8  | Benchmark e gráficos de S(P)           | testes                 | 7          | a fazer      |
+| 9  | Slides                                 | João Pedro             | 3, 6, 8    | a fazer      |
+| 10 | Ensaio da apresentação                 | todos                  | 9          | a fazer      |
 
 ## Tarefas
 _(a definir)_
