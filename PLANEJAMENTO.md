@@ -43,4 +43,13 @@ versão serial: S(P) = T1 / TP.
 | 10 | Ensaio da apresentação                 | todos                  | 9          | a fazer      |
 
 ## Tarefas
-_(a definir)_
+
+| Tarefa                                         | Responsável       | Revisor  |
+|------------------------------------------------|-------------------|----------|
+| Versão serial (adaptar `zpipe.c` para gzip)    | Pedro Salles      | Augusto  |
+| Comunicação MPI (divisão e junção dos blocos)  | Gabriel           | Renan    |
+| Compressão por bloco e formato gzip (CRC, trailer) | Matheus       | Augusto  |
+| Diagrama da troca de mensagens                 | Gabriel           | Renan    |
+| Testes de corretude (`gzip -t` e `cmp`)        | João Pedro Tomás  | —        |
+| Benchmark e gráficos de S(P)                   | José Neto         | —        |
+| Slides e roteiro da apresentação               | João Pedro        | todos    |
