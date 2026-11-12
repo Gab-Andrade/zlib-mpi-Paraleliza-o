@@ -1,0 +1,6 @@
+# executáveis
+zpipe_serial
+pgz_mpi
+
+# arquivos comprimidos de teste
+*.gz
