@@ -76,8 +76,13 @@ int main(int argc, char **argv)
     while (1) {
         /* 1. Rank 0 lê até P blocos. */
         int n = 0;
-        if (rank == 0)
+        if (rank == 0) {
             n = (int)fread(rodada, 1, (size_t)P * B, src);
+            if (ferror(src)) {                 /* falha de leitura != fim do arquivo */
+                fprintf(stderr, "erro de leitura\n");
+                MPI_Abort(MPI_COMM_WORLD, 1);
+            }
+        }
 
         /* 2. Rank 0 avisa todos quantos bytes leu. */
         MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
