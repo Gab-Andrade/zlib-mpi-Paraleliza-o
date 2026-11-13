@@ -7,3 +7,5 @@ pgz_mpi
 # arquivos de teste gerados localmente
 *.bin
 teste_*
+
+data/
