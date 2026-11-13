@@ -1,0 +1,7 @@
+# Scripts e Makefile sempre com fim de linha do Linux (LF),
+# senão quebram no Ubuntu quando alguém edita no Windows.
+*.sh     text eol=lf
+Makefile text eol=lf
+*.c      text eol=lf
+*.h      text eol=lf
+*.py     text eol=lf
