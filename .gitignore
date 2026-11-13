@@ -4,3 +4,6 @@ pgz_mpi
 
 # arquivos comprimidos de teste
 *.gz
+# arquivos de teste gerados localmente
+*.bin
+teste_*
