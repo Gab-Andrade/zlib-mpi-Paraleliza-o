@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <mpi.h>
 #include "bloco.h"
+#include "tempo.h"
 
 #define B (1024 * 1024)   /* tamanho de um bloco: 1 MB */
 
@@ -66,6 +67,9 @@ int main(int argc, char **argv)
         }
     }
 
+    unsigned long long bytes_out = 20;    /* cabeçalho (10) + fim do gzip (10) */
+    MPI_Barrier(MPI_COMM_WORLD);          /* todos começam o cronômetro juntos */
+    double t0 = agora();
     unsigned long crc_total = crc32(0L, Z_NULL, 0);   /* só o rank 0 usa */
     unsigned long long total = 0;                     /* bytes originais */
 
@@ -138,6 +142,7 @@ int main(int argc, char **argv)
                 if (conts[i] > 0)
                     crc_total = crc32_combine(crc_total, infos[2 * i + 1], conts[i]);
             total += n;
+            bytes_out += total_comp;
         }
     }
 
@@ -148,7 +153,8 @@ int main(int argc, char **argv)
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
         fclose(src);
-        printf("ok: %llu bytes comprimidos com P = %d\n", total, P);
+        double t = agora() - t0;
+        imprime_csv("mpi", P, total, bytes_out, t);
     }
 
     bloco_fim(&strm);
