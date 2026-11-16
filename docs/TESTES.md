@@ -1,13 +1,13 @@
 # Testes e desempenho
 
-**Responsáveis:** João Pedro Tomás (corretude) e José Neto (desempenho)
+**Responsáveis:** João Pedro Tomaz (corretude) e José Neto (desempenho)
 
 ## Ambiente
 - Processador: _(ex.: Intel i3-1115G4, 2 núcleos físicos, 4 threads)_
 - Sistema: _(ex.: Ubuntu 24.04 no WSL)_
 - Compilador / MPI / zlib: _(saída de `gcc --version` e `mpirun --version`)_
 
-## 1. Corretude (João Pedro Tomás)
+## 1. Corretude (João Pedro Tomaz)
 
 Critério do professor: o `.gz` passa em `gzip -t` **e** na ida e volta
 byte a byte (`gunzip -c saida.gz | cmp - entrada`).

@@ -23,7 +23,7 @@ acumula gestão, arquitetura e parte do desenvolvimento.
 | Arquitetura paralela        | Gabriel                        | diagrama da troca de mensagens  |
 | Desenvolvimento             | Gabriel, Pedro Salles, Matheus | código no repositório git       |
 | Revisão de código           | Renan, Augusto                 | registro das revisões           |
-| Testes e desempenho         | João Pedro Tomás, José Neto    | tabela de testes e gráficos S(P)|
+| Testes e desempenho         | João Pedro Tomaz, José Neto    | tabela de testes e gráficos S(P)|
 | Documentação e apresentação | João Pedro                     | slides e apresentação           |
 
 **Regra:** quem desenvolve um trecho não revisa esse trecho.
@@ -39,7 +39,7 @@ acumula gestão, arquitetura e parte do desenvolvimento.
 | 3  | Diagrama da troca de mensagens         | Gabriel                | 1          | concluído                      |
 | 4  | Versão MPI                             | Gabriel, Matheus       | 2, 3       | concluído                      |
 | 5  | Revisão do código                      | Renan, Augusto         | 2, 4       | a fazer (`docs/REVISOES.md`)   |
-| 6  | Testes de corretude                    | João Pedro Tomás       | 2, 4       | scripts no repo; 30/30 passando; falta preencher `docs/TESTES.md` |
+| 6  | Testes de corretude                    | João Pedro Tomaz       | 2, 4       | scripts no repo; 30/30 passando; falta preencher `docs/TESTES.md` |
 | 7  | Correções apontadas em 5 e 6           | devs                   | 5, 6       | a fazer                        |
 | 8  | Benchmark e gráficos de S(P)           | José Neto              | 7          | scripts no repo; falta rodada final e análise em `docs/TESTES.md` |
 | 9  | Slides                                 | João Pedro             | 3, 6, 8    | prévia pronta; falta versão final em `slides/` |
@@ -53,7 +53,7 @@ acumula gestão, arquitetura e parte do desenvolvimento.
 | Comunicação MPI (divisão e junção dos blocos)  | `src/pgz_mpi.c`                   | Gabriel           | Renan    |
 | Compressão por bloco e formato gzip            | `src/bloco.*`                     | Matheus           | Augusto  |
 | Diagrama da troca de mensagens                 | `docs/ARQUITETURA.md`             | Gabriel           | Renan    |
-| Testes de corretude (`gzip -t` e `cmp`)        | `tests/`, `docs/TESTES.md`        | João Pedro Tomás  | —        |
+| Testes de corretude (`gzip -t` e `cmp`)        | `tests/`, `docs/TESTES.md`        | João Pedro Tomaz  | —        |
 | Benchmark e gráficos de S(P)                   | `bench/`, `docs/TESTES.md`        | José Neto         | —        |
 | Revisão de código                              | `docs/REVISOES.md`                | Renan, Augusto    | —        |
 | Slides e roteiro da apresentação               | `slides/`                         | João Pedro        | todos    |
@@ -67,7 +67,7 @@ acumula gestão, arquitetura e parte do desenvolvimento.
   relatório de testes no repositório.
 - **16/11:** Pedro (serial e tempo) e José Neto (scripts de benchmark)
   subiram suas partes. Por causa do prazo, o gestor subiu `src/bloco.*`
-  (Matheus) e `tests/*.sh` (João Pedro Tomás). A versão do GitHub compila
+  (Matheus) e `tests/*.sh` (João Pedro Tomaz). A versão do GitHub compila
   sem avisos e passa nos 30 testes de corretude. Prévia dos slides pronta.
 - **Próximo:** revisões (Renan, Augusto) → correções → benchmark final e
   `docs/TESTES.md` → slides finais → ensaio.

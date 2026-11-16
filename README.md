@@ -15,9 +15,9 @@ com a versão serial: S(P) = T1 / TP.
 | `src/zpipe_serial.c`             | Pedro Salles      | Augusto  |
 | `src/pgz_mpi.c`                  | Gabriel           | Renan    |
 | `src/bloco.c`, `src/bloco.h`     | Matheus           | Augusto  |
-| `tests/gen_data.sh`, `tests/run_tests.sh` | João Pedro Tomás | — |
+| `tests/gen_data.sh`, `tests/run_tests.sh` | João Pedro Tomaz | — |
 | `bench/run_bench.sh`, `bench/plot.py`     | José Neto        | — |
-| `docs/TESTES.md`                 | João Pedro Tomás, José Neto | — |
+| `docs/TESTES.md`                 | João Pedro Tomaz, José Neto | — |
 | `docs/REVISOES.md`               | Renan, Augusto    | —        |
 | `slides/`                        | João Pedro        | todos    |
 

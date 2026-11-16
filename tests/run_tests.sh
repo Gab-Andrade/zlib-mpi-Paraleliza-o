@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # run_tests.sh — testes de corretude da serial e da versão MPI.
-# Responsável: João Pedro Tomás
+# Responsável: João Pedro Tomaz
 #
 # Para cada arquivo de data/ (menos os _big) e cada P:
 #   1) gzip -t aceita o .gz?   2) gunzip devolve exatamente a entrada?

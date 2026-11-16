@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # gen_data.sh — gera os arquivos de teste em data/ (não vão para o GitHub).
-# Responsável: João Pedro Tomás
+# Responsável: João Pedro Tomaz
 #
 # Uso: bash tests/gen_data.sh          (grandes com 128 MB)
 #      BIG_MB=32 bash tests/gen_data.sh (grandes menores, para testar rápido)
