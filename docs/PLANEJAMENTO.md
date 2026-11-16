@@ -3,7 +3,7 @@
 **Disciplina:** Programação Paralela — prof. Gilberto Nakamura
 **Tema:** paralelizar com MPI a compressão gzip da zlib (`examples/zpipe.c`)
 **Gestor:** Gabriel
-**Última atualização:** 13/11/2026
+**Última atualização:** 16/11/2026
 
 > Documento vivo: atualizado pelo gestor ao longo da semana.
 
@@ -13,6 +13,9 @@ Comprimir um arquivo em blocos, em paralelo com MPI, gerando um `.gz` válido
 versão serial: S(P) = T1 / TP.
 
 ## Papéis
+
+O grupo tem 8 integrantes (menos que os 10 previstos); por isso Gabriel
+acumula gestão, arquitetura e parte do desenvolvimento.
 
 | Segmento                    | Integrante(s)                  | Entregável                      |
 |-----------------------------|--------------------------------|---------------------------------|
@@ -32,14 +35,14 @@ versão serial: S(P) = T1 / TP.
 | #  | Atividade                              | Responsável            | Depende de | Status                         |
 |----|----------------------------------------|------------------------|------------|--------------------------------|
 | 1  | Plano e papéis                         | Gabriel                | —          | concluído                      |
-| 2  | Versão serial (linha de base T1)       | Pedro Salles           | 1          | código pronto, falta subir     |
+| 2  | Versão serial (linha de base T1)       | Pedro Salles           | 1          | concluído                      |
 | 3  | Diagrama da troca de mensagens         | Gabriel                | 1          | concluído                      |
-| 4  | Versão MPI                             | Gabriel, Matheus       | 2, 3       | `pgz_mpi.c` concluído; `bloco.c` falta subir |
-| 5  | Revisão do código                      | Renan, Augusto         | 2, 4       | modelo pronto em `docs/REVISOES.md` |
-| 6  | Testes de corretude                    | João Pedro Tomás       | 2, 4       | scripts prontos, falta rodar e subir |
+| 4  | Versão MPI                             | Gabriel, Matheus       | 2, 3       | concluído                      |
+| 5  | Revisão do código                      | Renan, Augusto         | 2, 4       | a fazer (`docs/REVISOES.md`)   |
+| 6  | Testes de corretude                    | João Pedro Tomás       | 2, 4       | scripts no repo; 30/30 passando; falta preencher `docs/TESTES.md` |
 | 7  | Correções apontadas em 5 e 6           | devs                   | 5, 6       | a fazer                        |
-| 8  | Benchmark e gráficos de S(P)           | José Neto              | 7          | scripts prontos, falta rodar e subir |
-| 9  | Slides                                 | João Pedro             | 3, 6, 8    | a fazer                        |
+| 8  | Benchmark e gráficos de S(P)           | José Neto              | 7          | scripts no repo; falta rodada final e análise em `docs/TESTES.md` |
+| 9  | Slides                                 | João Pedro             | 3, 6, 8    | prévia pronta; falta versão final em `slides/` |
 | 10 | Ensaio da apresentação                 | todos                  | 9          | a fazer                        |
 
 ## Tarefas
@@ -62,5 +65,9 @@ versão serial: S(P) = T1 / TP.
   corretude passando; S(2) ≈ 1,7 com 128 MB). Estrutura do repositório
   criada; instruções enviadas a cada integrante; modelos de revisão e de
   relatório de testes no repositório.
-- **Próximo:** Pedro e Matheus sobem o código → revisões e testes →
-  correções → benchmark final → slides → ensaio.
+- **16/11:** Pedro (serial e tempo) e José Neto (scripts de benchmark)
+  subiram suas partes. Por causa do prazo, o gestor subiu `src/bloco.*`
+  (Matheus) e `tests/*.sh` (João Pedro Tomás). A versão do GitHub compila
+  sem avisos e passa nos 30 testes de corretude. Prévia dos slides pronta.
+- **Próximo:** revisões (Renan, Augusto) → correções → benchmark final e
+  `docs/TESTES.md` → slides finais → ensaio.
