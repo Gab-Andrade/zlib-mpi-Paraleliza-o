@@ -1,29 +1,51 @@
 /*
  * zpipe_serial.c — versão serial (linha de base T1).
- * Adaptado do exemplo oficial da zlib, examples/zpipe.c (Mark Adler).
- * Mudanças: gera .gz (15 + 16), recebe arquivos por argumento e mede o tempo.
+ * Responsável: Pedro Salles · Revisor: Augusto
  *
+ * Adaptado do exemplo oficial da zlib, examples/zpipe.c (Mark Adler).
  * Uso: zpipe_serial entrada saida
  */
-#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
 #include <zlib.h>
+#include "tempo.h"
 
 #define CHUNK (256 * 1024)
 
-static double agora(void)
+/* Comprime src inteiro em dst (formato gzip). Devolve 0 se deu certo. */
+static int comprime_arquivo(z_stream *strm, FILE *src, FILE *dst,
+                            unsigned long long *bytes_in,
+                            unsigned long long *bytes_out)
 {
-    struct timespec ts;
-    clock_gettime(CLOCK_MONOTONIC, &ts);
-    return ts.tv_sec + ts.tv_nsec * 1e-9;
+    static unsigned char in[CHUNK], out[CHUNK];
+    int ret = Z_OK, flush;
+
+    do {                                   /* lê um pedaço da entrada */
+        strm->avail_in = fread(in, 1, CHUNK, src);
+        if (ferror(src))
+            return -1;
+        *bytes_in += strm->avail_in;
+        flush = feof(src) ? Z_FINISH : Z_NO_FLUSH;
+        strm->next_in = in;
+
+        do {                               /* comprime até esvaziar a entrada */
+            strm->avail_out = CHUNK;
+            strm->next_out = out;
+            ret = deflate(strm, flush);
+            if (ret == Z_STREAM_ERROR)
+                return -1;
+            size_t have = CHUNK - strm->avail_out;
+            if (fwrite(out, 1, have, dst) != have)
+                return -1;
+            *bytes_out += have;
+        } while (strm->avail_out == 0);
+    } while (flush != Z_FINISH);
+
+    return ret == Z_STREAM_END ? 0 : -1;   /* terminou direito? */
 }
 
 int main(int argc, char **argv)
 {
-    static unsigned char in[CHUNK], out[CHUNK];
-
     if (argc != 3) {
         fprintf(stderr, "uso: %s entrada saida\n", argv[0]);
         return 1;
@@ -44,31 +66,19 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    double t0 = agora();
-    int flush;
-    do {                                   /* lê um pedaço da entrada */
-        strm.avail_in = fread(in, 1, CHUNK, src);
-        if (ferror(src)) { fprintf(stderr, "erro de leitura\n"); return 1; }
-        flush = feof(src) ? Z_FINISH : Z_NO_FLUSH;
-        strm.next_in = in;
-
-        do {                               /* comprime até esvaziar a entrada */
-            strm.avail_out = CHUNK;
-            strm.next_out = out;
-            deflate(&strm, flush);
-            size_t have = CHUNK - strm.avail_out;
-            if (fwrite(out, 1, have, dst) != have) {
-                fprintf(stderr, "erro de escrita\n");
-                return 1;
-            }
-        } while (strm.avail_out == 0);
-    } while (flush != Z_FINISH);
-
-    if (fclose(dst) != 0) { fprintf(stderr, "erro ao fechar a saída\n"); return 1; }
+    unsigned long long bytes_in = 0, bytes_out = 0;
+    double t0 = agora();                   /* ler + comprimir + gravar + fechar */
+    int erro = comprime_arquivo(&strm, src, dst, &bytes_in, &bytes_out);
+    if (fclose(dst) != 0)
+        erro = -1;
     fclose(src);
     double t = agora() - t0;
     deflateEnd(&strm);
 
-    printf("serial,%.6f\n", t);           /* tempo em segundos */
+    if (erro) {
+        fprintf(stderr, "erro ao comprimir\n");
+        return 1;
+    }
+    imprime_csv("serial", 1, bytes_in, bytes_out, t);
     return 0;
 }
