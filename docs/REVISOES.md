@@ -12,14 +12,15 @@
 
 ## O que conferir
 
+
 ### Renan — comunicação MPI (`pgz_mpi.c`)
-- [ ] Toda coletiva (`Bcast`, `Scatterv`, `Gather`, `Gatherv`) é chamada por **todos** os ranks, na **mesma ordem**?
-- [ ] Os tamanhos de envio e de recepção casam? (o que o rank i manda = o que o rank 0 espera dele)
-- [ ] Quando o arquivo acaba (`n == 0`), todos saem do laço juntos?
-- [ ] Em erro, usa `MPI_Abort` (e não `return`/`exit` num rank só)?
-- [ ] Os CRCs são juntados **em ordem** e com o tamanho **original** de cada bloco?
-- [ ] As contagens são `int`: `P × tamanho do bloco` cabe sem estourar?
-- [ ] O código bate com o diagrama em `docs/ARQUITETURA.md`?
+- [x] Toda coletiva (`Bcast`, `Scatterv`, `Gather`, `Gatherv`) é chamada por **todos** os ranks, na **mesma ordem**?
+- [x] Os tamanhos de envio e de recepção casam? (o que o rank i manda = o que o rank 0 espera dele)
+- [x] Quando o arquivo acaba (`n == 0`), todos saem do laço juntos?
+- [x] Em erro, usa `MPI_Abort` (e não `return`/`exit` num rank só)?
+- [x] Os CRCs são juntados **em ordem** e com o tamanho **original** de cada bloco?
+- [x] As contagens são `int`: `P × tamanho do bloco` cabe sem estourar no escopo previsto?
+- [x] O código bate com o diagrama em `docs/ARQUITETURA.md`?
 
 ### Augusto — zlib e C (`zpipe_serial.c`, `tempo.c`, `bloco.c`)
 - [ ] O retorno de `deflate`, `fwrite`, `fclose` e `malloc` é sempre conferido?
@@ -30,11 +31,13 @@
 
 ## Registro
 
+
 ### Renan
 
 | # | Data | Arquivo:linha | O que foi apontado | Como foi resolvido | Commit |
 |---|------|---------------|--------------------|--------------------|--------|
-| R1 |     |               |                    |                    |        |
+| — | 16/11/2026 | `src/pgz_mpi.c` e `docs/ARQUITETURA.md` | Revisão concluída. Nenhuma correção necessária dentro do escopo definido para o projeto. | Código e documentação aprovados após análise e testes. | — |
+
 
 ### Augusto
 
@@ -43,7 +46,8 @@
 | A1 |     |               |                    |                    |        |
 
 ## Situação final
-- `docs/ARQUITETURA.md`: ☐ aprovado (Renan)
-- `src/pgz_mpi.c`: ☐ aprovado (Renan)
+
+- `docs/ARQUITETURA.md`: ☑ aprovado (Renan)
+- `src/pgz_mpi.c`: ☑ aprovado (Renan)
 - `src/zpipe_serial.c` / `src/tempo.c`: ☐ aprovado (Augusto)
 - `src/bloco.c`: ☐ aprovado (Augusto)
