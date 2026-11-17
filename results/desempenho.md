@@ -1,0 +1,35 @@
+| arquivo | P | T (s, mediana) | S(P) | E(P) |
+|---|---|---|---|---|
+| random_big.bin | serial | 2.710 | 1.00 | - |
+| random_big.bin | 1 | 2.705 | 1.00 | 1.00 |
+| random_big.bin | 2 | 1.590 | 1.70 | 0.85 |
+| random_big.bin | 3 | 1.144 | 2.37 | 0.79 |
+| random_big.bin | 4 | 0.962 | 2.82 | 0.70 |
+| random_big.bin | 5 | 0.800 | 3.39 | 0.68 |
+| random_big.bin | 6 | 0.770 | 3.52 | 0.59 |
+| random_big.bin | 7 | 0.643 | 4.21 | 0.60 |
+| random_big.bin | 8 | 0.635 | 4.27 | 0.53 |
+| random_big.bin | 12 | 0.513 | 5.29 | 0.44 |
+| random_big.bin | 16 | 0.678 | 4.00 | 0.25 |
+| texto_big.txt | serial | 3.220 | 1.00 | - |
+| texto_big.txt | 1 | 3.290 | 0.98 | 0.98 |
+| texto_big.txt | 2 | 1.775 | 1.81 | 0.91 |
+| texto_big.txt | 3 | 1.218 | 2.64 | 0.88 |
+| texto_big.txt | 4 | 0.961 | 3.35 | 0.84 |
+| texto_big.txt | 5 | 0.825 | 3.90 | 0.78 |
+| texto_big.txt | 6 | 0.748 | 4.30 | 0.72 |
+| texto_big.txt | 7 | 0.698 | 4.61 | 0.66 |
+| texto_big.txt | 8 | 0.667 | 4.83 | 0.60 |
+| texto_big.txt | 12 | 0.528 | 6.10 | 0.51 |
+| texto_big.txt | 16 | 0.757 | 4.25 | 0.27 |
+| zeros_big.bin | serial | 0.543 | 1.00 | - |
+| zeros_big.bin | 1 | 0.589 | 0.92 | 0.92 |
+| zeros_big.bin | 2 | 0.328 | 1.66 | 0.83 |
+| zeros_big.bin | 3 | 0.259 | 2.09 | 0.70 |
+| zeros_big.bin | 4 | 0.200 | 2.72 | 0.68 |
+| zeros_big.bin | 5 | 0.221 | 2.46 | 0.49 |
+| zeros_big.bin | 6 | 0.185 | 2.93 | 0.49 |
+| zeros_big.bin | 7 | 0.176 | 3.08 | 0.44 |
+| zeros_big.bin | 8 | 0.163 | 3.34 | 0.42 |
+| zeros_big.bin | 12 | 0.164 | 3.31 | 0.28 |
+| zeros_big.bin | 16 | 0.244 | 2.23 | 0.14 |
